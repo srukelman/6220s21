@@ -8,16 +8,11 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.cscore.*;
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-/**
- * @author Owen Ryan
- *
- **/
 public class Robot extends TimedRobot {
 
 
@@ -30,10 +25,6 @@ public class Robot extends TimedRobot {
     private VictorSPX Ldrive2 = new VictorSPX(6); //1st stage elevator drive (m2)
     private VictorSPX Rdrive1 = new VictorSPX(9); //2nd stage elevator drive (m1)
     private VictorSPX Rdrive2 = new VictorSPX(8); //2nd stage elevator Rotational drive (m1)
-    private TalonSRX lift1 = new TalonSRX(2); //driving intake motor (left)
-    private TalonSRX lift2 = new TalonSRX (3); //driving intake motor (right)
-    private TalonSRX claw1 = new TalonSRX (3); //driving intake motor (right)
-    private TalonSRX claw2 = new TalonSRX (3); //driving intake motor (right)
     private DigitalInput CubeLim = new DigitalInput (1);
     private DigitalInput StageLim1 = new DigitalInput(2);
     private DigitalInput StageLim2 = new DigitalInput(2);
@@ -56,13 +47,13 @@ public class Robot extends TimedRobot {
         js1 = new Joystick(0);
         js2 = new Joystick(1);
         //likely not most efficient way to do vision
-        UsbCamera usbCamera = new UsbCamera("USB Camera 0", 0);
-        MjpegServer mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
-        mjpegServer1.setSource(usbCamera); CvSink cvSink = new CvSink("opencv_USB Camera 0");
-        mjpegServer1.setSource(usbCamera);
-        CvSource outputStream = new CvSource("Blur", VideoMode.PixelFormat.kMJPEG, 640, 480, 30);
-        MjpegServer mjpegServer2 = new MjpegServer("serve_Blur", 1182);
-        mjpegServer2.setSource(outputStream);
+        //UsbCamera usbCamera = new UsbCamera("USB Camera 0", 0);
+        //MjpegServer mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
+        //mjpegServer1.setSource(usbCamera); CvSink cvSink = new CvSink("opencv_USB Camera 0");
+        //mjpegServer1.setSource(usbCamera);
+        //CvSource outputStream = new CvSource("Blur", VideoMode.PixelFormat.kMJPEG, 640, 480, 30);
+        //MjpegServer mjpegServer2 = new MjpegServer("serve_Blur", 1182);
+        //mjpegServer2.setSource(outputStream);
     }
 
     @Override
